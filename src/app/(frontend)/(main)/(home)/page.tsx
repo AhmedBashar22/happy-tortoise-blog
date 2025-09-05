@@ -1,8 +1,10 @@
 import ArticleListSection from './ArticleListSection'
 import FeaturesArticlesSection from './FeaturedArticlesSection'
 import HeroSection from './HeroSection'
+import { connection } from 'next/server'
 
-const Home = () => {
+const Home = async () => {
+  await connection()
   return (
     <>
       <HeroSection />

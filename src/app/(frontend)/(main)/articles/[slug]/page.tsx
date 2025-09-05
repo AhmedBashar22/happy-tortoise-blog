@@ -55,7 +55,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
         <div className="flex flex-col gap-4 w-full border-b-2 border-border pb-4 items-center">
           {article.isFeatured && <Badge>Featured</Badge>}
           <h1 className="text-center">{article.title}</h1>
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between w-full">
+          <div className="flex flex-col lg:flex-row gap-4 items-center lg:items-start justify-between w-full">
             <div className="gap-2 flex items-baseline">
               <Calendar size={20} />
               <p>{new Date(article.updatedAt ?? article.createdAt).toDateString()}</p>
@@ -64,7 +64,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
               <UserIcon size={20} />
               <p>{author.penName ?? author.username}</p>
             </div>
-            <div className="flex gap-2 justify-center">
+            <div className="flex gap-2 justify-center flex-wrap">
               {(article.categories as Category[] | undefined | null)?.map((category) => (
                 <Badge variant="secondary" key={category.id}>
                   {category.name}
@@ -79,7 +79,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
         {article.tags && article.tags.length > 0 && (
           <div className="flex gap-2 w-full">
             <p>Tags:</p>
-            <div className="flex gap-1">
+            <div className="flex gap-1 flex-wrap">
               {article.tags.map((tag) => (
                 <Badge variant="outline" key={tag}>
                   {tag}

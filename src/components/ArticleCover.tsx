@@ -44,7 +44,7 @@ const ListArticleCover = ({
               <UserIcon size={16} />
               <p>{author.penName ?? author.username}</p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               {(article.categories as Category[] | undefined | null)?.map((category) => (
                 <Badge variant="secondary" key={category.id}>
                   {category.name}
@@ -65,7 +65,7 @@ const ListArticleCover = ({
             Click to&nbsp;<strong>Read More</strong>
           </p>
           {article.tags && article.tags.length > 0 && (
-            <div className="flex gap-1">
+            <div className="flex gap-1 flex-wrap">
               {article.tags.map((tag) => (
                 <Badge key={tag} variant="outline">
                   {tag}
@@ -106,7 +106,7 @@ const BoxArticleCover = ({
           {article.isFeatured && <Badge className="absolute right-4 bottom-4 z-30">Featured</Badge>}
         </div>
         <CardTitle className="mb-2">{article.title}</CardTitle>
-        <div className="flex flex-col lg:flex-row gap-1 lg:gap-4 justify-between lg:items-center">
+        <div className="flex flex-col lg:flex-row gap-1 lg:gap-4 justify-between">
           <div className="flex gap-2 items-baseline">
             <Calendar size={16} />
             <p>{new Date(article.updatedAt ?? article.createdAt).toDateString()}</p>
@@ -115,7 +115,7 @@ const BoxArticleCover = ({
             <UserIcon size={16} />
             <p>{author.penName ?? author.username}</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             {(article.categories as Category[] | undefined | null)?.map((category) => (
               <Badge variant="secondary" key={category.id}>
                 {category.name}
@@ -134,7 +134,7 @@ const BoxArticleCover = ({
           Click to&nbsp;<strong>Read More</strong>
         </p>
         {article.tags && article.tags.length > 0 && (
-          <div className="flex gap-1">
+          <div className="flex gap-1 flex-wrap">
             {article.tags.map((tag) => (
               <Badge key={tag} variant="outline">
                 {tag}

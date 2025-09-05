@@ -41,7 +41,7 @@ export default buildConfig({
       collections: {
         media: true,
       },
-      token: process.env.VERCEL_BLOB_TOKEN || '',
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
     }),
   ],
 })

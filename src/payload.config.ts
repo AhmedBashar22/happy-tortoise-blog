@@ -24,6 +24,17 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  onInit: async (payload) => {
+    const username = process.env.ROOT_ACCOUNT_USERNAME ?? ''
+    const password = process.env.ROOT_ACCOUNT_PASSWORD ?? ''
+    const root = (
+      await payload.find({ collection: 'users', where: { username: { equals: username } } })
+    ).docs.at(0)
+
+    if (!root) {
+      await payload.create({ collection: 'users', data: { username: username, password } })
+    }
+  },
   collections: [Users, Media, Articles, Subscriptions, Categories],
   globals: [Navigation],
   editor: lexicalEditor(),

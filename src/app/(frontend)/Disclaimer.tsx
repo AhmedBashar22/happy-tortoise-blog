@@ -11,7 +11,7 @@ const Disclaimer = () => {
     const disclaimerCookie = cookies.find((c) => c.includes('disclaimerAccepted'))
 
     if (!disclaimerCookie) setHidden(false)
-  })
+  }, [])
 
   return (
     <div
@@ -28,8 +28,8 @@ const Disclaimer = () => {
           <p>You are about to enter a demo project for display purposes only.</p>
 
           <p>
-            This means that the website you're visiting is not a real blog site. The information
-            presented here may be inaccurate, and should not be acted upon.
+            This means that the website you&apos;re visiting is not a real blog site. The
+            information presented here may be inaccurate, and should not be acted upon.
           </p>
 
           <p className="text-destructive text-2xl font-bold">Use at your own risk.</p>

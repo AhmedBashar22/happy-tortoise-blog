@@ -35,7 +35,9 @@ const DesktopNav = ({
           {featuredCategories.map((category) => (
             <li key={category.id}>
               <Button className="nav-link" variant="ghost" asChild>
-                <Link href={`/articles?category=${category.name}`}>{category.name}</Link>
+                <Link href={`/articles?category=${category.name.replaceAll('&', '%26')}`}>
+                  {category.name}
+                </Link>
               </Button>
             </li>
           ))}
@@ -51,7 +53,9 @@ const DesktopNav = ({
               <DropdownMenuContent>
                 {categories.map((category) => (
                   <DropdownMenuItem asChild key={category.id}>
-                    <Link href={`/articles?category=${category.name}`}>{category.name}</Link>
+                    <Link href={`/articles?category=${category.name.replaceAll('&', '%26')}`}>
+                      {category.name}
+                    </Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>

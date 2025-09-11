@@ -2,6 +2,7 @@ import React from 'react'
 import './styles.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Josefin_Sans } from 'next/font/google'
+import Disclaimer from './Disclaimer'
 
 const josefinSans = Josefin_Sans({ subsets: ['vietnamese'] })
 
@@ -23,6 +24,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           enableSystem
           disableTransitionOnChange
         >
+          <Disclaimer />
           {children}
         </ThemeProvider>
       </body>

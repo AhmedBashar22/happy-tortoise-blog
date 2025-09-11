@@ -46,7 +46,9 @@ const MobileNav = ({
             {featuredCategories.map((category) => (
               <li key={category.id}>
                 <Button className="w-full justify-start" variant="ghost" asChild>
-                  <Link href={`/articles?category=${category.name}`}>{category.name}</Link>
+                  <Link href={`/articles?category=${category.name.replaceAll('&', '%26')}`}>
+                    {category.name}
+                  </Link>
                 </Button>
               </li>
             ))}
@@ -58,7 +60,9 @@ const MobileNav = ({
                   <AccordionContent className="flex flex-col gap-2 items-start ml-4">
                     {categories.map((category) => (
                       <Button key={category.id} asChild variant="ghost">
-                        <Link href={`/articles?category=${category.name}`}>{category.name}</Link>
+                        <Link href={`/articles?category=${category.name.replaceAll('&', '%26')}`}>
+                          {category.name}
+                        </Link>
                       </Button>
                     ))}
                   </AccordionContent>

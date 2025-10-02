@@ -1,67 +1,53 @@
-# Payload Blank Template
+# Happy Tortoise Blog
 
-This template comes configured with the bare minimum to get started on anything you need.
+This is a blog site made with PayloadCMS - a Next.js content management system. The blog site is made for tortoise owners and lovers.
 
-## Quick start
+## Used Technologies
 
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
+1. React - UI Framework
+2. Next.js - React with SSR & SSG
+3. Tailwind CSS - CSS styling framework
+4. Shadcn - React UI component Library
+5. PayloadCMS - Content Management System
+6. MongoDB - Document-based NoSQL database
 
-## Quick Start - local setup
+## Live Demo
 
-To spin up this template locally, follow these steps:
+You can try a live demo at [happy-tortoise-blog-two.vercel.app](https://happy-tortoise-blog-two.vercel.app/) hosted on [Vercel](https://vercel.com/)
+
+## Local Setup Guide
+
+### Prerequisites
+
+The following software must be installed in order to run this project:
+
+1. [Node.js](https://nodejs.org/)
+2. A MongoDB instance
 
 ### Clone
 
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+If you haven't already, clone this repository locally on your PC.
 
-### Development
+### Install dependencies
 
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URI` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+To install project dependencies, open this project in the terminal and run `npm install`.
 
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
+### Setting up environmental variables
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+You may add environmental variables in a `.env`. Use `.env.example` as a reference.
 
-#### Docker (Optional)
+1. `DATABASE_URI` (required): A URI that points to a MongoDB instance.
+2. `PAYLOAD_SECRET` (required): A secret key which Payload uses to encrypt user passwords.
+3. `BLOB_READ_WRITE_TOKEN` (optional): A Vercel Blob token. This will prompt the app to use vercel Blog service for media uploads instead of storing them locally.
+4. `ROOT_ACCOUNT_USERNAME` (optional): A username for the root account. If you do not specify this variable, you'll be asked to create a first user.
+5. `ROOT_ACCOUNT_PASSWORD` (optional): A password for the root account. If you do not specify this variable, you'll be asked to create a first user.
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+### Start the server
 
-To do so, follow these steps:
+To start the development, simply run `npm run dev` in your terminal.
 
-- Modify the `MONGODB_URI` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URI` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+Alternatively, you can run `npm run build` to build the project first, then run `npm start` to start your build. This gives you a faster performance.
 
-## How it works
+### Final step
 
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
-
-### Collections
-
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
-
-- #### Users (Authentication)
-
-  Users are auth-enabled collections that have access to the admin panel.
-
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/main/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
-
-- #### Media
-
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
-
-### Docker
-
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
-
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
-
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
-
-## Questions
-
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+After you've run the Next.js server, you can visit http://localhost:3000/ to visit the site. You can also visit http://localhost:3000/admin to visit Payload's admin dashboard.
